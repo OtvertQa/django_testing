@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Task delete{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Task delete</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form_task.project }}<br>
+            {{ form_task.name }}<br>
+            {{ form_task.status }}<br>
+            {{ form_task.description }}<br>
+
+            <span>{{ error_task }}</span>
+
+            <button class="btn btn-danger" type="submit">Delete task</button>
+        </form>
+    </div>
+
+{% endblock %}

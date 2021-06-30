@@ -1,0 +1,40 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Projects on the site {% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Projects on the site </h1>
+        {% if projects %}
+            {% for el in projects %}
+
+                <div class="alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <h5>{{ el.start_date }} - {{ el.finish_date }}</h5>
+                    <i>{{ el.status }}</i>
+                    {% if el.task.all %}
+                        <p></p>
+                        <h5>Tasks:</h5>
+                        {% for tasks in el.task.all %}
+                            <ul>
+                                <li>{{ tasks.name }}<br>{{ tasks.description }}</li>
+                                <i>{{ tasks.status }}</i>
+                            </ul>
+
+                        {% endfor %}
+                    {% else %}
+                        <p></p>
+                        <h5>No tasks</h5>
+                    {% endif %}
+                    <a href="{% url 'projects-detail' el.id %}" class="btn btn-warning">Read more</a>
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+            <p>No projects</p>
+        {% endif %}
+
+    </div>
+
+{% endblock %}
