@@ -1,0 +1,11 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}About us{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>About us</h1>
+        <p>This site was written in django with love by Khairullin Danis.</p>
+        <a href="{% url 'projects_home' %}"><button class="btn btn-danger">Projects</button></a>
+    </div>
+{% endblock %}
